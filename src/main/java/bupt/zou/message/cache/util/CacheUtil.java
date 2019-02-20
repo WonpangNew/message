@@ -17,7 +17,9 @@ public class CacheUtil {
      */
     public static void addMessage2Cache(MessageDto dto) {
         try {
-            MessageCache.getCache().put(dto.getMessageEntity());
+            if(dto.getMessageEntity() != null) {
+                MessageCache.getCache().put(dto.getMessageEntity());
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
